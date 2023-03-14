@@ -27,6 +27,12 @@ async function main() {
     res.send(vendorData);
   });
 
+  app.get("/dishdata", async (req, res) => {
+    let dishData = await db.collection("dishdata").find().toArray();
+    res.status(200);
+    res.send(dishData);
+  });
+
   app.post("/vendordata", async (req, res) => {
     //@TODO by right deal with some error handling
 
